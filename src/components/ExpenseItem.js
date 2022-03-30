@@ -1,13 +1,15 @@
+import Card from "./Card";
+import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 export default function ExpenseItem(props) {
   return (
-    <div className="expense-item" key={props.id}>
-      <div>{props.date.toLocaleDateString()}</div>
+    <Card className="expense-item" key={props.id}>
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">{props.amount}€</div>
       </div>
-    </div>
+    </Card>
   );
 }

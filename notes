@@ -1,1 +1,4 @@
 React course
+
+Can use props.children in all components -> wrapper components!
+use variable to pass classname through props!
