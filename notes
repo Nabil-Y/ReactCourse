@@ -2,3 +2,11 @@ React course
 
 Can use props.children in all components -> wrapper components!
 use variable to pass classname through props!
+
+two way binding to reset forms -> on input, set value to state and then reset on submit
+
+Lifting state up with props and functions accepting param
+
+Controlled componenants when data is handled by parent component
+
+Stateless vs Stateful components // Few components manage state and distribute it around to child stateless components
