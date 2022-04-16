@@ -5,6 +5,19 @@ export default function ExpenseForm(props) {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const cancelFormHandler = () => {
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+
+    setIsFormOpen(!isFormOpen);
+  };
+
+  const openForm = () => {
+    setIsFormOpen(!isFormOpen);
+  };
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -21,7 +34,7 @@ export default function ExpenseForm(props) {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -30,7 +43,13 @@ export default function ExpenseForm(props) {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+
+    setIsFormOpen(!isFormOpen);
   };
+
+  if (!isFormOpen) {
+    return <button onClick={openForm}>Add New Expense</button>;
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -65,6 +84,7 @@ export default function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={cancelFormHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
