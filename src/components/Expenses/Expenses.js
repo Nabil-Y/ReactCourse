@@ -6,17 +6,15 @@ import "./Expenses.css";
 import { useState } from "react";
 
 export default function Expenses(props) {
-  const [filterDate, setFilterDate] = useState("2020");
-  const [expenses, setExpenses] = useState(props.items);
+  const [filterDate, setFilterDate] = useState("2021");
 
   const filterHandler = (data) => {
     setFilterDate(data);
-    setExpenses(
-      props.items.filter(
-        (expense) => expense.date.getFullYear().toString() === data
-      )
-    );
   };
+
+  let expenses = props.items.filter(
+    (expense) => expense.date.getFullYear().toString() === filterDate
+  );
 
   return (
     <Card className="expenses">
