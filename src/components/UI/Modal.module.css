@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modalTitle {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalText {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modalButton {
+  margin: 1rem;
+  align-self: flex-end;
+}
