@@ -3,6 +3,12 @@
   width: 100%;
 }
 
+.input:focus {
+  border: var(--primary-color) 2px solid;
+  border-radius: 2px;
+  outline: none;
+}
+
 .form {
   padding: 1.5rem 1rem;
 }

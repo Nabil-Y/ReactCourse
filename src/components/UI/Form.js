@@ -3,7 +3,7 @@ import Button from "./Button";
 import Card from "./Card";
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
 
@@ -16,8 +16,21 @@ const Form = () => {
   };
 
   const formSubmitHandler = () => {
-    console.log("submited", "userName", userName, "userAge", userAge);
+    props.onSubmitClick(userAge, userName);
+
+    if (
+      !userName ||
+      userName.match(/\d/) ||
+      !userAge ||
+      parseInt(userAge) < 0 ||
+      !parseInt(userAge)
+    ) {
+      return;
+    }
+    setUserAge("");
+    setUserName("");
   };
+
   return (
     <Card className={style.form}>
       <h2>Username</h2>

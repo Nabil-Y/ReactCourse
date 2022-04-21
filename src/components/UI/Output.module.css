@@ -1,0 +1,5 @@
+.li {
+  border: 1px var(--black) solid;
+  margin: 1rem;
+  padding: 0.4rem;
+}
