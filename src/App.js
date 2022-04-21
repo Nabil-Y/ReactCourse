@@ -22,12 +22,12 @@ const App = () => {
     } else if (!userAge || parseInt(userAge) < 0 || !parseInt(userAge)) {
       setModalText("Please enter a valid number (higher than 0)");
       setIsModal(!isModal);
+    } else if (userAge && userName) {
+      setUserList((prevState) => [
+        ...prevState,
+        { name: userName, age: userAge },
+      ]);
     }
-
-    setUserList((prevState) => [
-      ...prevState,
-      { name: userName, age: userAge },
-    ]);
   };
 
   return (

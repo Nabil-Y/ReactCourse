@@ -33,20 +33,22 @@ const Form = (props) => {
 
   return (
     <Card className={style.form}>
-      <h2>Username</h2>
-      <input
-        className={style.input}
-        type="text"
-        value={userName}
-        onChange={userNameChangeHandler}
-      />
-      <h2>Age(Years)</h2>
-      <input
-        className={style.input}
-        type="text"
-        value={userAge}
-        onChange={userAgeChangeHandler}
-      />
+      <form>
+        <h2>Username</h2>
+        <input
+          className={style.input}
+          type="text"
+          value={userName}
+          onChange={userNameChangeHandler}
+        />
+        <h2>Age(Years)</h2>
+        <input
+          className={style.input}
+          type="text"
+          value={userAge}
+          onChange={userAgeChangeHandler}
+        />
+      </form>
       <Button action="Add User" onButtonClick={formSubmitHandler} />
     </Card>
   );
