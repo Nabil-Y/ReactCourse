@@ -1,46 +1,31 @@
-import Form from "./components/UI/Form";
-import Modal from "./components/UI/Modal";
-import Output from "./components/UI/Output";
-import { useState } from "react";
+import React, { useState } from 'react';
 
-const App = () => {
-  const [isModal, setIsModal] = useState(false);
-  const [modalText, setModalText] = useState("Dummy Text");
-  const [userList, setUserList] = useState([]);
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import MainHeader from './components/MainHeader/MainHeader';
 
-  const modalHandler = () => {
-    setIsModal(!isModal);
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const loginHandler = (email, password) => {
+    // We should of course check email and password
+    // But it's just a dummy/ demo anyways
+    setIsLoggedIn(true);
   };
 
-  const submitHandler = (userAge, userName) => {
-    if (!userAge && !userName) {
-      setModalText("Please enter a valid name and age (non-empty values)");
-      setIsModal(!isModal);
-    } else if (!userName || userName.match(/\d/)) {
-      setModalText("Please enter a name");
-      setIsModal(!isModal);
-    } else if (!userAge || parseInt(userAge) < 0 || !parseInt(userAge)) {
-      setModalText("Please enter a valid number (higher than 0)");
-      setIsModal(!isModal);
-    } else if (userAge && userName) {
-      setUserList((prevState) => [
-        ...prevState,
-        { name: userName, age: userAge },
-      ]);
-    }
+  const logoutHandler = () => {
+    setIsLoggedIn(false);
   };
 
   return (
-    <div>
-      <Form onSubmitClick={submitHandler} />
-      <Modal
-        modalText={modalText}
-        modalHandler={modalHandler}
-        isModal={isModal}
-      />
-      <Output userList={userList} />
-    </div>
+    <React.Fragment>
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </React.Fragment>
   );
-};
+}
 
 export default App;
