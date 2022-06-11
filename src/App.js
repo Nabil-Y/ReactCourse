@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./components/UI/Button/Button";
 import "./App.css";
-import DemoOutput from "./components/UI/Button/Demo/DemoOutput";
+import DemoOutput from "./components/Demo/DemoOutput";
 
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
